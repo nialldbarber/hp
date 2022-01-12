@@ -21,7 +21,7 @@ able to see all information about that character
 ## COMPONENTS
 
 typography
-pills
+tags
 layout
 list
 list item
