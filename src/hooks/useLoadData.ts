@@ -2,8 +2,8 @@ import {useEffect, useMemo, useState} from 'react'
 import {fetchData} from 'src/utils/fetchData'
 import {removeDuplicates} from 'src/utils/removeDuplicates'
 
-export function useLoadData(api: string) {
-  const [data, setData] = useState([])
+export function useLoadData<T>(api: string) {
+  const [data, setData] = useState<T[]>([])
   const [tagNames, setTagNames] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)

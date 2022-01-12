@@ -4,7 +4,8 @@ import {Layout} from 'src/components/Layout'
 import {Loading} from 'src/components/Loading'
 import {H, P} from 'src/components/Typography'
 import {API} from 'src/constants/api'
-import {formatTagNames} from 'src/utils/getTagNames'
+import {Tags} from 'src/components/Tags'
+import type {Characters} from 'src/types/characters'
 
 const HomeScreen = () => {
   const {
@@ -12,7 +13,7 @@ const HomeScreen = () => {
     tagNames,
     loading,
     error,
-  } = useLoadData(API)
+  } = useLoadData<Characters>(API)
 
   if (loading) return <Loading />
   if (error)
@@ -20,19 +21,14 @@ const HomeScreen = () => {
       <Error msg="could not find characters 😐, try again?" />
     )
 
-  // list of filter tags
-  // character list
+  console.log(characters)
 
   return (
     <Layout>
       <H text="HP Characters" level={1} />
       <div>
-        <div style={{color: 'red'}}>
-          {tagNames.map((tags) => (
-            <p>{formatTagNames(tags)}</p>
-          ))}
-        </div>
-        {characters.map(({name, image}) => (
+        <Tags tagNames={tagNames} />
+        {characters.map(({name}) => (
           <div key={name}>
             <P text={name} />
           </div>
