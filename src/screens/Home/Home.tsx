@@ -1,5 +1,6 @@
 import {Error} from 'src/components/Error'
 import {Loading} from 'src/components/Loading'
+import {H} from 'src/components/Typography'
 import {API} from 'src/constants/api'
 import {useLoadData} from 'src/hooks/useLoadData'
 
@@ -20,7 +21,7 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <p>HOME SCREEN</p>
+      <H text="HP Characters" level={1} />
     </div>
   )
 }

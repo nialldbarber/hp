@@ -1,9 +1,13 @@
-const Typography = () => {
-  return (
-    <>
-      <p>Typography...</p>
-    </>
-  )
+type ParagraphProps = {
+  text: string
+  inline?: boolean
 }
 
-export default Typography
+const Paragraph = ({
+  text,
+  inline = false,
+}: ParagraphProps) => {
+  return inline ? <span>{text}</span> : <p>{text}</p>
+}
+
+export default Paragraph
