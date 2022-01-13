@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useMemo} from 'react'
 
+import {Button} from 'src/components/Button'
 import {P} from 'src/components/Typography'
 import {
   formatTagNames,
@@ -9,20 +10,25 @@ import {
 type TagsProps = {
   tagNames: any
   itemKey: any
+  handleKeySelect: (key: any) => void
+  selectedKey: any
 }
 
-const Tags = ({tagNames, itemKey}: TagsProps) => {
-  const [showSubSection, setShowSubSection] =
-    useState(false)
+const Tags = ({
+  tagNames,
+  itemKey,
+  handleKeySelect,
+  selectedKey,
+}: TagsProps) => {
+  const isSelectedKey = useMemo(() => {
+    return selectedKey === itemKey
+  }, [selectedKey, itemKey])
 
   return (
     <div style={{color: 'red'}}>
-      <div
-        onMouseEnter={() => setShowSubSection(true)}
-        onMouseLeave={() => setShowSubSection(false)}
-      >
-        <P text={formatTagNames(itemKey)} />
-        {showSubSection ? (
+      <div onClick={() => handleKeySelect(itemKey)}>
+        <Button text={formatTagNames(itemKey)} />
+        {isSelectedKey ? (
           <div style={{border: '1px dashed dodgerblue'}}>
             {tagNames[itemKey].map((value: any) => (
               <P
