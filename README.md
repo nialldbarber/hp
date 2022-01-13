@@ -60,3 +60,8 @@ screens
 
 - (test) fetch error response
 - (test) fetch error response (hooks)
+
+## Features
+
+- Fetch a random character
+- Fetch a character based on search

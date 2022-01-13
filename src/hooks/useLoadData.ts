@@ -22,7 +22,6 @@ export function useLoadData<T>(
         // get tag names from the first item
         let tagTitles = gatherTagTitles(response)
         setTagNames(tagTitles)
-        console.log(tagTitles)
         // if we want to filter data
         if (key && value) {
           let updatedData = filterDataByInput(
@@ -48,5 +47,10 @@ export function useLoadData<T>(
     [data]
   )
 
-  return {data: uniqueCharacters, tagNames, loading, error}
+  return {
+    data: uniqueCharacters,
+    tagNames,
+    loading,
+    error,
+  }
 }
