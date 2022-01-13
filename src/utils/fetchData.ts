@@ -4,7 +4,9 @@
   in a useEffect
  */
 
-export async function fetchData(url: string): Promise<any> {
+export async function fetchData(
+  url: string
+): Promise<any[]> {
   let controller = new AbortController()
   try {
     let response = await fetch(url, {
@@ -17,11 +19,10 @@ export async function fetchData(url: string): Promise<any> {
     }
     controller = null
     return response.json()
-  } catch (err: any) {
-    if (err.name === 'AbortError') {
-      return
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      if (err.name === 'AbortError') return
     }
-    console.log(err)
     throw new Error('Failed to fetch!')
   } finally {
     controller?.abort()

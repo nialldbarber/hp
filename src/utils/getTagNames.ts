@@ -32,7 +32,7 @@ export function formatTagNames(tag: string): string {
   a new array where each category name
   has the list of options
  */
-export function gatherTagTitles(array: any) {
+export function gatherTagTitles(array: any[]): string[] {
   let tagNames: any = {}
   array.forEach((item: any) => {
     for (let key in item) {
