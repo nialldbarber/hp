@@ -5,11 +5,14 @@ import {P} from 'src/components/Typography'
 type ButtonProps = {
   text?: string
   children?: ReactNode
+  onClick?: () => void
 }
 
-const Button = ({text, children}: ButtonProps) => {
+const Button = ({text, children, onClick}: ButtonProps) => {
   return (
-    <button>{text ? <P text={text} /> : children}</button>
+    <button onClick={onClick}>
+      {text ? <P text={text} /> : children}
+    </button>
   )
 }
 

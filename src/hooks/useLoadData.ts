@@ -1,9 +1,14 @@
 import {useEffect, useMemo, useState} from 'react'
 import {fetchData} from 'src/utils/fetchData'
+import {filterDataByInput} from 'src/utils/filterDataByInput'
 import {gatherTagTitles} from 'src/utils/getTagNames'
 import {removeDuplicates} from 'src/utils/removeDuplicates'
 
-export function useLoadData<T>(api: string) {
+export function useLoadData<T>(
+  api: string,
+  key?: string,
+  value?: string
+) {
   const [data, setData] = useState<T[]>([])
   const [tagNames, setTagNames] = useState([])
   const [loading, setLoading] = useState(true)
@@ -17,14 +22,24 @@ export function useLoadData<T>(api: string) {
         // get tag names from the first item
         let tagTitles = gatherTagTitles(response)
         setTagNames(tagTitles)
-        setData(response)
+        // if we want to filter data
+        if (key && value) {
+          let updatedData = filterDataByInput(
+            response,
+            key,
+            value
+          )
+          setData(updatedData)
+        } else {
+          setData(response)
+        }
       } catch (err) {
         setError(true)
       } finally {
         setLoading(false)
       }
     })()
-  }, [])
+  }, [key, value])
 
   const uniqueCharacters = useMemo(
     // might be pointless but hey!

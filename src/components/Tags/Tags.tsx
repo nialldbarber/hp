@@ -1,7 +1,7 @@
 import {useMemo} from 'react'
 
 import {Button} from 'src/components/Button'
-import {P} from 'src/components/Typography'
+import {TagText} from 'src/components/TagText'
 import {
   formatTagNames,
   formatValueOutput,
@@ -31,8 +31,10 @@ const Tags = ({
         {isSelectedKey ? (
           <div style={{border: '1px dashed dodgerblue'}}>
             {tagNames[itemKey].map((value: any) => (
-              <P
+              <TagText
                 key={value}
+                itemKey={itemKey}
+                itemValue={value}
                 text={formatValueOutput(value)}
               />
             ))}
