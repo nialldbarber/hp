@@ -1,6 +1,7 @@
 import {ReactNode} from 'react'
 
 import {P} from 'src/components/Typography'
+import {buttonStyles} from 'src/components/Button/Button.css'
 
 type ButtonProps = {
   text?: string
@@ -10,7 +11,7 @@ type ButtonProps = {
 
 const Button = ({text, children, onClick}: ButtonProps) => {
   return (
-    <button onClick={onClick}>
+    <button className={buttonStyles} onClick={onClick}>
       {text ? <P text={text} /> : children}
     </button>
   )

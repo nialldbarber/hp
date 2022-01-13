@@ -16,7 +16,7 @@ const TagContainer = ({tagNames}: TagContainerProps) => {
   }, [])
 
   return (
-    <div style={{color: 'red'}}>
+    <div style={{display: 'flex'}}>
       {Object.keys(tagNames).map((key) => (
         <div key={key}>
           <Tags
