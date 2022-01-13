@@ -17,7 +17,10 @@ export async function fetchData(url: string): Promise<any> {
     }
     controller = null
     return response.json()
-  } catch (err) {
+  } catch (err: any) {
+    if (err.name === 'AbortError') {
+      return
+    }
     console.log(err)
     throw new Error('Failed to fetch!')
   } finally {
