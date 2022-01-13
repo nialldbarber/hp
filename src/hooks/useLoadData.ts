@@ -15,10 +15,7 @@ export function useLoadData<T>(api: string) {
         // get the initial response
         let response = await fetchData(api)
         // get tag names from the first item
-
         let tagTitles = gatherTagTitles(response)
-        console.log(tagTitles)
-
         setTagNames(Object.keys(response[0]))
         setData(response)
       } catch (err) {

@@ -1,14 +1,12 @@
 /**
   takes a string
-  replace underscore with a space 
+  replace underscore with a space
   _ -> " "
-  separate by capital letter 
+  separate by capital letter
   dateOfBirth -> date Of Birth
-  capitalise the first letter of each word  
-  date Of Birth -> Date Of Birth
  */
 
-export const formatTagNames = (tag: string): string => {
+export function formatTagNames(tag: string): string {
   let output = []
   let formattedString = tag
   formattedString = formattedString.replace(/[_ )(]/g, ' ')
@@ -28,9 +26,9 @@ export const formatTagNames = (tag: string): string => {
 }
 
 /**
-  gather specific tag names and create 
-  a new array where each category name 
-  has the list of options 
+  gather specific tag names and create
+  a new array where each category name
+  has the list of options
  */
 export function gatherTagTitles(array: any) {
   let tagNames: Record<any, any> = {}
