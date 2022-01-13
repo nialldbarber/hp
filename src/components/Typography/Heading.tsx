@@ -6,9 +6,9 @@ type HeadingProps = {
   level: typeof HEADER_LIST[number]
 }
 
-const Heading = ({text, level, ...rest}: HeadingProps) => {
+const H = ({text, level, ...rest}: HeadingProps) => {
   const H = `h${level}` as keyof JSX.IntrinsicElements
   return <H {...rest}>{text}</H>
 }
 
-export default Heading
+export default H

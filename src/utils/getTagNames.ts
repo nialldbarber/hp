@@ -1,3 +1,5 @@
+import {keysToIgnore} from 'src/constants/tagNames'
+
 /**
   takes a string
   replace underscore with a space
@@ -31,7 +33,7 @@ export function formatTagNames(tag: string): string {
   has the list of options
  */
 export function gatherTagTitles(array: any) {
-  let tagNames: Record<any, any> = {}
+  let tagNames: any = {}
   array.forEach((item: any) => {
     for (let key in item) {
       // is key in tagNames?
@@ -42,10 +44,18 @@ export function gatherTagTitles(array: any) {
           tagNames[key] = [...tagNames[key], item[key]]
         }
       } else {
-        // add tagNames key and value
-        tagNames[key] = [item[key]]
+        // ignore keys we don't want
+        // to filter by
+        if (!keysToIgnore.includes(key)) {
+          // add tagNames key and value
+          tagNames[key] = [item[key]]
+        }
       }
     }
   })
   return tagNames
 }
+
+export const formatValueOutput = (
+  value: string | boolean
+) => (typeof value === 'boolean' ? value.toString() : value)
