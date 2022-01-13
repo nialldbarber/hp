@@ -26,3 +26,28 @@ export const formatTagNames = (tag: string): string => {
 
   return output.join('').toLowerCase()
 }
+
+/**
+  gather specific tag names and create 
+  a new array where each category name 
+  has the list of options 
+ */
+export function gatherTagTitles(array: any) {
+  let tagNames: Record<any, any> = {}
+  array.forEach((item: any) => {
+    for (let key in item) {
+      // is key in tagNames?
+      if (key in tagNames) {
+        // is value not in tagNames array?
+        if (!tagNames[key].includes(item[key])) {
+          // add value to tagNames array
+          tagNames[key] = [...tagNames[key], item[key]]
+        }
+      } else {
+        // add tagNames key and value
+        tagNames[key] = [item[key]]
+      }
+    }
+  })
+  return tagNames
+}

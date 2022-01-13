@@ -52,6 +52,10 @@ components
 
 screens
 
+## LIBS
+
+- React window
+
 ## BUGS
 
 - (test) fetch error response
