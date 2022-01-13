@@ -58,4 +58,5 @@ export function gatherTagTitles(array: any) {
 
 export const formatValueOutput = (
   value: string | boolean
-) => (typeof value === 'boolean' ? value.toString() : value)
+): string =>
+  typeof value === 'boolean' ? value.toString() : value
