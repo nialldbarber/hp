@@ -8,10 +8,10 @@ import {
 } from 'src/utils/getTagNames'
 
 type TagsProps = {
-  tagNames: any
-  itemKey: any
-  handleKeySelect: (key: any) => void
-  selectedKey: any
+  tagNames: Record<string, any>
+  itemKey: string
+  handleKeySelect: (key: string) => void
+  selectedKey: null | string
 }
 
 const Tags = ({
@@ -23,6 +23,8 @@ const Tags = ({
   const isSelectedKey = useMemo(() => {
     return selectedKey === itemKey
   }, [selectedKey, itemKey])
+
+  console.log({selectedKey, tagNames, itemKey})
 
   return (
     <div style={{color: 'red'}}>

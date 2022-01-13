@@ -7,9 +7,11 @@ type TagContainerProps = {
 }
 
 const TagContainer = ({tagNames}: TagContainerProps) => {
-  const [activeKey, setActiveKey] = useState<any>(null)
+  const [activeKey, setActiveKey] = useState<null | string>(
+    null
+  )
 
-  const handleKeySelect = useCallback((key: any) => {
+  const handleKeySelect = useCallback((key: string) => {
     setActiveKey(key)
   }, [])
 
