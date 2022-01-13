@@ -14,6 +14,9 @@ const TagText = ({
   itemValue,
 }: TagTextProps) => {
   const {updateEndpoint} = useStore()
+
+  // console.log({itemValue})
+
   return (
     <Button
       onClick={() => updateEndpoint(itemKey, itemValue)}

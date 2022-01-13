@@ -28,6 +28,7 @@ const HomeScreen = () => {
     return (
       <Error msg="could not find characters 😐, try again?" />
     )
+  console.log(characters)
 
   return (
     <Layout>

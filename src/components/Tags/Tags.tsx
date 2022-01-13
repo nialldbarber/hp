@@ -24,6 +24,8 @@ const Tags = ({
     return selectedKey === itemKey
   }, [selectedKey, itemKey])
 
+  // console.log({selectedKey})
+
   return (
     <div style={{color: 'red'}}>
       <div onClick={() => handleKeySelect(itemKey)}>

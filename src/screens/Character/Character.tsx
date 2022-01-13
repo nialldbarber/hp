@@ -26,10 +26,11 @@ const CharacterScreen = () => {
 
   return (
     <Layout>
-      {character.map(({name, image}) => (
+      {character.map(({name, image, alive}) => (
         <div key={name}>
           <H text={name} level={2} />
           {image && <img src={image} alt={name} />}
+          <P text={alive ? 'ALIVE' : 'DEAD'} />
         </div>
       ))}
     </Layout>
