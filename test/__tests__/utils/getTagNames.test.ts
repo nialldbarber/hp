@@ -1,6 +1,7 @@
 import {
   formatTagNames,
   gatherTagTitles,
+  formatValueOutput,
 } from 'src/utils/getTagNames'
 import {
   dummyDataForTagNames,

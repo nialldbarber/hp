@@ -29,6 +29,8 @@ export function useLoadData<T>(
             key,
             value
           )
+          console.log(updatedData)
+
           setData(updatedData)
         } else {
           setData(response)
