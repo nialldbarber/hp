@@ -64,4 +64,7 @@ screens
 ## Features
 
 - Fetch a random character
+  - click a button and you're routed to a random characters page
+  - use react router to do the routing on click
+  - create a function that returns a "random" character
 - Fetch a character based on search
