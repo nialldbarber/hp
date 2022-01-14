@@ -2,7 +2,13 @@
   fetch data from a url, then return
   that promise for it to be picked up
   in a useEffect
- */
+*/
+
+function trimAndLower(text: string | null | undefined) {
+  typeof text === 'string'
+    ? text.trim().toLowerCase()
+    : text
+}
 
 export async function fetchData(
   url: string
